@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../images/icons/ssm.ico">
+    <title>Hello示例</title>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function jp_post() {
+                //json格式传递数据
+                var params = {"name": "张三", "sex": "男"}
+                //post方式提交
+                // responseTxt - 包含调用成功时的结果内容
+                // statusTXT - 包含调用的状态
+                // xhr - 包含 XMLHttpRequest 对象
+                $.post("sayhello.do", params, function (responseTxt,statusTxt,xhr) {
+                    // console.log(data);
+                    alert("post: "+ responseTxt.msg  +"  调用状态："+ statusTxt +"  XMLHttpRequest："+xhr.status+"->"+xhr.statusText);
+                }, "json");
+            }
+
+            function jp_ajax() {
+                //json格式传递数据
+                var params = {"name": "张三", "sex": "男"}
+                // ajax请求后台
+                $.ajax({
+                    url: "sayhello.do",
+                    type: "post",
+                    data: params,
+                    success: function (data) {
+                        alert("ajax: "+ data.msg);
+                    }
+                });
+            }
+
+            //给按钮添加点击事件
+            $('#btn_post').click(function () {
+                jp_post();
+            });
+            //给按钮添加点击事件
+            $('#btn_ajax').click(function () {
+                jp_ajax();
+            });
+        });
+    </script>
+</head>
+</head>
+<body>
+<h3>hello.html</h3>
+<button id="btn_post">post方式请求</button>
+<br><br><br>
+<button id="btn_ajax">ajax方式请求</button>
+</body>
+
+</html>
