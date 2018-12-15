@@ -11,9 +11,12 @@
                 //json格式传递数据
                 var params = {"name": "张三", "sex": "男"}
                 //post方式提交
-                $.post("sayhello.do", params, function (data) {
+                // responseTxt - 包含调用成功时的结果内容
+                // statusTXT - 包含调用的状态
+                // xhr - 包含 XMLHttpRequest 对象
+                $.post("sayhello.do", params, function (responseTxt,statusTxt,xhr) {
                     // console.log(data);
-                    alert("post: "+ data.msg);
+                    alert("post: "+ responseTxt.msg  +"  调用状态："+ statusTxt +"  XMLHttpRequest："+xhr.status+"->"+xhr.statusText);
                 }, "json");
             }
 
