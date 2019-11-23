@@ -7,4 +7,18 @@ new Vue({
             wechat: '123456'
         }
     },
+    methods: {
+        // greet: function () { //定义一个函数叫greet
+        //     return 'Good night ' + this.name;
+        // }
+        greet(time) {
+            // return 'Good night ' + this.name;
+            return `Good ${time} ${this.name}`; //反引号是1旁边的符号，ES6的语法
+        },
+
+        havelunch() {
+            return `吃过午饭了吗？`;
+        }
+
+    },
 })
