@@ -3,24 +3,22 @@ new Vue({
     el: "#vue-app", //element
     data() {
         return {
-            name: "mister wu",
-            wechat: '123456',
-            website: 'https://www.baidu.com',
-            websiteTag: '<a href="https://www.taobao.com">taobao</a>'
+            age: 18,
+            X: 0,
+            Y: 0,
         }
     },
     methods: {
-        // greet: function () { //定义一个函数叫greet
-        //     return 'Good night ' + this.name;
-        // }
-        greet(time) {
-            // return 'Good night ' + this.name;
-            return `Good ${time} ${this.name}`; //反引号是1旁边的符号，ES6的语法
+        add(inc) {
+            this.age += inc;
         },
-
-        havelunch() {
-            return `吃过午饭了吗？`;
+        subtract(dec) {
+            this.age -= dec;
+        },
+        updateXY(event) {
+            //console.log(event); /* event事件对象 */
+            this.X = event.offsetX;
+            this.Y = event.offsetY;
         }
-
     },
 })
