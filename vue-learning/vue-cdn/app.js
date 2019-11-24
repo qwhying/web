@@ -4,7 +4,9 @@ new Vue({
     data() {
         return {
             name: "mister wu",
-            wechat: '123456'
+            wechat: '123456',
+            website: 'https://www.baidu.com',
+            websiteTag: '<a href="https://www.taobao.com">taobao</a>'
         }
     },
     methods: {
